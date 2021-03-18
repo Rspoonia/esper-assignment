@@ -1,38 +1,49 @@
 .App {
+  background-color: #000;
+  height: 100vh;
+  color: #fff;
+  padding: 2rem;
+}
+.nav-images {
+  height: 1.5rem;
+  margin: 0 1rem;
+}
+.nav-wrapper {
+  width: 12%;
+  border: 1px solid #ebebeb;
+  padding: 1rem;
+  height: 50vh;
+  background-color: rgba(255,255,255, 0.3);
+}
+.nav-wrapper div {
+  display: flex;
+  margin: 2rem 1rem;
+  align-items: center;
+  cursor: pointer;
+}
+.App h2 {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.wrapper{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.main-section {
+  padding: 2rem;
+  width: max-content;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.react-contextmenu-wrapper {
+  width: fit-content;
+}
+.menuItem {
+  cursor: pointer !important;
+}
+.main-wrapper {
+  width: 70vw;
+  height: 70vh;
+  border: 1px solid #ebebeb;
+  position: relative;
+}
+.main-wrapper .react-contextmenu-wrapper {
+  width: 100%;
+  height: 100%;
 }
