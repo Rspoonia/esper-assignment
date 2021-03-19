@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import NavBar from "./components/navbar"
 import "./App.css"
 import { mainMenu } from "./constants"
 import MainSection from "./components/main"
+import { DndProvider } from "react-dnd"
+import { HTML5Backend } from "react-dnd-html5-backend"
 
 function App() {
   /**
@@ -19,11 +21,13 @@ function App() {
       <h2>{activeMenu.name}</h2>
       <div className="wrapper">
         <NavBar setActiveMenu={setActiveMenu} mainMenuData={mainMenuData} />
-        <MainSection
-          mainMenuData={mainMenuData}
-          setMainMenuItems={setMainMenuItems}
-          activeMenu={activeMenu}
-        />
+        <DndProvider backend={HTML5Backend}>
+          <MainSection
+            mainMenuData={mainMenuData}
+            setMainMenuItems={setMainMenuItems}
+            activeMenu={activeMenu}
+          />
+        </DndProvider>
       </div>
     </div>
   )
