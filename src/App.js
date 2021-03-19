@@ -5,7 +5,13 @@ import { mainMenu } from "./constants"
 import MainSection from "./components/main"
 
 function App() {
+  /**
+   * for track user folder location
+   */
   const [activeMenu, setActiveMenu] = useState(mainMenu[0])
+  /**
+   * for store user folders data
+   */
   const [mainMenuData, setMainMenuItems] = useState([...mainMenu])
 
   return (

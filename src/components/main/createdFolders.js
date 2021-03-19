@@ -1,28 +1,18 @@
 import React from "react"
-import { newFolderSrc } from "../../constants"
-import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu"
+import FoldersUI from "./foldersUI"
 
-const CreatedFolders = () => {
-  const deleteFolder = (e, data) => {
-    e.stopPropagation()
-    console.log("data", data)
-  }
+const CreatedFolders = ({ menuItems, deleteFolder }) => {
+  // for delete a folder
 
   return (
-    <div>
-      <ContextMenuTrigger id="add_same_id">
-        <img src={newFolderSrc} alt="hello" />
-        <img src={newFolderSrc} alt="hello" />
-      </ContextMenuTrigger>
-      <ContextMenu className="menu" id="add_same_id">
-        <MenuItem
-          onClick={deleteFolder}
-          data={{ item: "delete" }}
-          className="menuItem"
-        >
-          delete
-        </MenuItem>
-      </ContextMenu>
+    <div className="wrapper-items">
+      {menuItems[0].items?.length > 0 ? (
+        menuItems[0].items.map((item) => (
+          <FoldersUI item={item} key={item.id} deleteFolder={deleteFolder} />
+        ))
+      ) : (
+        <h2>No folder created</h2>
+      )}
     </div>
   )
 }

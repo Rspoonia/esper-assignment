@@ -14,12 +14,13 @@
     "react-dnd-html5-backend": "^14.0.0",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.3",
+    "uuid": "^8.3.2",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
