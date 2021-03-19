@@ -51,19 +51,13 @@
   display: grid;
   grid-auto-columns: auto;
   grid-auto-flow: column;
+}
 
-}
-#div2 {
-  float: left;
-  width: 100px;
-  height: 100px;
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid #fff;
-}
 .folder-created {
   display: flex;
   flex-direction: column;
+  width: min-content;
+  margin-right: 1rem;
 }
 .folder-created input {
   width: 100px;

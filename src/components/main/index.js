@@ -36,26 +36,27 @@ const MainSection = ({ mainMenuData, setMainMenuItems, activeMenu }) => {
   }
   // all values of active menu item
   const menuItems = mainMenuData.filter((item) => item.name === activeMenu.name)
-
-  const [{ canDrop, isOver }, drop] = useDrop((e) => ({
-    //   e.preventDefault
-    // The type (or types) to accept - strings or symbols
-    accept: "BOX",
-    // Props to collect
-    // canDrop: () => console.log("can drop"),
-    // drop: () => console.log("================", drop),
-    hover: (item, monitor) => console.log("=======", item),
-    collect: (monitor) => ({
-      isOver: monitor.isOver(),
-      canDrop: monitor.canDrop(),
-    }),
-  }))
-
+  // for rename a folder
+  const renameFolderHandler = (item, newName) => {
+    const tempData = [...mainMenuData]
+    const activeMenuIndex = tempData.findIndex(
+      (item) => item.name === activeMenu.name
+    )
+    const currentFolderIndex = tempData[activeMenuIndex].items.findIndex(
+      (folder) => folder.id === item.id
+    )
+    tempData[activeMenuIndex].items[currentFolderIndex].name = newName
+    setMainMenuItems(tempData)
+  }
   return (
-    <section className="main-wrapper" ref={drop}>
+    <section className="main-wrapper">
       <ContextMenuTrigger id="wrapper-id">
         <div className="main-section">
-          <CreatedFolders menuItems={menuItems} deleteFolder={deleteFolder} />
+          <CreatedFolders
+            menuItems={menuItems}
+            deleteFolder={deleteFolder}
+            renameFolderHandler={renameFolderHandler}
+          />
         </div>
       </ContextMenuTrigger>
       <ContextMenu className="menu" id="wrapper-id">
