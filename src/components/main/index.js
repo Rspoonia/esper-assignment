@@ -8,7 +8,7 @@ import "./react-contextmenu.css"
 
 const MainSection = ({ mainMenuData, setMainMenuItems, activeMenu }) => {
   // for create new folder
-  const handleClick = (e, data) => {
+  const handleClick = () => {
     const tempData = [...mainMenuData]
     const activeMenuIndex = tempData.findIndex(
       (item) => item.name === activeMenu.name
@@ -19,6 +19,8 @@ const MainSection = ({ mainMenuData, setMainMenuItems, activeMenu }) => {
       iconUrl: newFolderSrc,
       altText: activeMenu.name + tempData[activeMenuIndex].items.length,
       id: uuidv4(),
+      x: (tempData[activeMenuIndex].items.length * 10) % 100,
+      y: 20 + (tempData[activeMenuIndex].items.length % 5) * 100,
     })
     setMainMenuItems(tempData)
   }
@@ -48,8 +50,31 @@ const MainSection = ({ mainMenuData, setMainMenuItems, activeMenu }) => {
     tempData[activeMenuIndex].items[currentFolderIndex].name = newName
     setMainMenuItems(tempData)
   }
+
+  const [, drop] = useDrop(
+    () => ({
+      accept: "box",
+      drop: (item, monitor) => {
+        const tempData = [...mainMenuData]
+        const activeMenuIndex = tempData.findIndex(
+          (folder) => folder.name === activeMenu.name
+        )
+        const currentFolderIndex = tempData[activeMenuIndex].items.findIndex(
+          (folder) => folder.id === item.id
+        )
+        const { x = 20, y = 20 } = monitor.getDifferenceFromInitialOffset()
+
+        tempData[activeMenuIndex].items[currentFolderIndex].x += x
+        tempData[activeMenuIndex].items[currentFolderIndex].y += y
+
+        setMainMenuItems(tempData)
+      },
+    }),
+    [activeMenu.name]
+  )
+
   return (
-    <section className="main-wrapper">
+    <section className="main-wrapper" ref={drop}>
       <ContextMenuTrigger id="wrapper-id">
         <div className="main-section">
           <CreatedFolders

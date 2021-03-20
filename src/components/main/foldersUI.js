@@ -8,6 +8,8 @@ const FoldersUI = ({ item, deleteFolder, renameFolderHandler }) => {
   // to hold new name of a function
   const [changedName, setChangedName] = useState(item.name)
 
+  const [disableContextMenu, setDisableContextMenu] = useState(false)
+
   const ref = useRef()
   // for call a function after input box out of fox
   useEffect(() => {
@@ -21,10 +23,25 @@ const FoldersUI = ({ item, deleteFolder, renameFolderHandler }) => {
     renameFolderHandler(item, newNameValue)
     setRename(false)
   }
+  const [, drag] = useDrag(() => ({
+    type: "box",
+    item,
+    collect: (monitor) => {
+      if (monitor.isDragging()) setDisableContextMenu(true)
+      if (!monitor.isDragging()) {
+        setTimeout(() => setDisableContextMenu(false), 1500)
+      }
+    },
+  }))
+
   return (
     <div>
-      <ContextMenuTrigger id={item.id}>
-        <span className="folder-created">
+      <ContextMenuTrigger id={item.id} disable={disableContextMenu}>
+        <span
+          className="folder-created"
+          ref={drag}
+          style={{ transform: `translate(${item.x}px, ${item.y}px)` }}
+        >
           <img src={item.iconUrl} alt={item.name} />
           {rename ? (
             <input

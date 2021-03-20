@@ -40,7 +40,7 @@
 .main-wrapper {
   width: 70vw;
   height: 70vh;
-  border: 1px solid #ebebeb;
+  border: 1px dashed #ebebeb;
   position: relative;
 }
 .main-wrapper .react-contextmenu-wrapper {
@@ -48,9 +48,6 @@
   height: 100%;
 }
 .wrapper-items{
-  display: grid;
-  grid-auto-columns: auto;
-  grid-auto-flow: column;
 }
 
 .folder-created {
@@ -58,6 +55,7 @@
   flex-direction: column;
   width: min-content;
   margin-right: 1rem;
+  position: absolute;
 }
 .folder-created input {
   width: 100px;
