@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import NavBar from "./components/navbar"
-// import "./style.css"
+import "./style.css"
 import { mainMenu } from "./constants"
 import MainSection from "./components/main"
 import { DndProvider } from "react-dnd"
