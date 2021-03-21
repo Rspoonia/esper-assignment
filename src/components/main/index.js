@@ -4,7 +4,7 @@ import CreatedFolders from "./createdFolders"
 import { newFolderSrc } from "../../constants"
 import { v4 as uuidv4 } from "uuid"
 import { useDrop } from "react-dnd"
-import "./react-contextmenu.css"
+// import "./react-contextmenu.css"
 
 const MainSection = ({ mainMenuData, setMainMenuItems, activeMenu }) => {
   // for create new folder
@@ -19,7 +19,7 @@ const MainSection = ({ mainMenuData, setMainMenuItems, activeMenu }) => {
       iconUrl: newFolderSrc,
       altText: activeMenu.name + tempData[activeMenuIndex].items.length,
       id: uuidv4(),
-      x: (tempData[activeMenuIndex].items.length * 10) % 100,
+      x: tempData[activeMenuIndex].items.length * 100,
       y: 20 + (tempData[activeMenuIndex].items.length % 5) * 100,
     })
     setMainMenuItems(tempData)

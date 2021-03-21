@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import NavBar from "./components/navbar"
-import "./App.css"
+// import "./style.css"
 import { mainMenu } from "./constants"
 import MainSection from "./components/main"
 import { DndProvider } from "react-dnd"
@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="App">
-      <h2>{activeMenu.name}</h2>
+      <h2 data-testid="active-menu-id">{activeMenu.name}</h2>
       <div className="wrapper">
         <NavBar setActiveMenu={setActiveMenu} mainMenuData={mainMenuData} />
         <DndProvider backend={HTML5Backend}>
