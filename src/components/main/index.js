@@ -13,14 +13,17 @@ const MainSection = ({ mainMenuData, setMainMenuItems, activeMenu }) => {
     const activeMenuIndex = tempData.findIndex(
       (item) => item.name === activeMenu.name
     )
-    // const newFolderLength = tempData[activeMenuIndex].items.filter(item => item.l)
+    const itemLength = tempData[activeMenuIndex].items.length
+    const tempY = tempData[activeMenuIndex].items.length < 10 ? 20 : 160
+    const tempX = itemLength < 10 ? itemLength * 120 : itemLength * 120 - 1200
+
     tempData[activeMenuIndex].items.push({
       name: "New Folder " + new Date().getTime(),
       iconUrl: newFolderSrc,
-      altText: activeMenu.name + tempData[activeMenuIndex].items.length,
+      altText: activeMenu.name + itemLength,
       id: uuidv4(),
-      x: tempData[activeMenuIndex].items.length * 120 + 20,
-      y: 20,
+      x: tempX + 20,
+      y: 20 + tempY,
     })
     setMainMenuItems(tempData)
   }
