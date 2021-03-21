@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/esper-assignment/static/css/main.f4863b15.chunk.css",
+    "main.js": "/esper-assignment/static/js/main.71447f5f.chunk.js",
+    "main.js.map": "/esper-assignment/static/js/main.71447f5f.chunk.js.map",
+    "runtime-main.js": "/esper-assignment/static/js/runtime-main.d22e7918.js",
+    "runtime-main.js.map": "/esper-assignment/static/js/runtime-main.d22e7918.js.map",
+    "static/js/2.7a41215d.chunk.js": "/esper-assignment/static/js/2.7a41215d.chunk.js",
+    "static/js/2.7a41215d.chunk.js.map": "/esper-assignment/static/js/2.7a41215d.chunk.js.map",
+    "static/js/3.45b8a574.chunk.js": "/esper-assignment/static/js/3.45b8a574.chunk.js",
+    "static/js/3.45b8a574.chunk.js.map": "/esper-assignment/static/js/3.45b8a574.chunk.js.map",
+    "index.html": "/esper-assignment/index.html",
+    "static/css/main.f4863b15.chunk.css.map": "/esper-assignment/static/css/main.f4863b15.chunk.css.map",
+    "static/js/2.7a41215d.chunk.js.LICENSE.txt": "/esper-assignment/static/js/2.7a41215d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d22e7918.js",
+    "static/js/2.7a41215d.chunk.js",
+    "static/css/main.f4863b15.chunk.css",
+    "static/js/main.71447f5f.chunk.js"
+  ]
+}
